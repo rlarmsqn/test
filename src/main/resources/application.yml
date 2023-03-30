@@ -1,0 +1,19 @@
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  thymeleaf:
+    cache: false
+    prefix: classpath:templates/
+    suffix: .html
+    check-template-location: true
+  mvc:
+    static-path-pattern: /static/**
+  session:
+    timeout: -1
+  pid:
+    file: boot.pid
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
