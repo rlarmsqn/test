@@ -1,4 +1,4 @@
-package com.example.lucy;
+package com.example.lucy.config;
 
 import com.fasterxml.jackson.core.SerializableString;
 import com.fasterxml.jackson.core.io.CharacterEscapes;
