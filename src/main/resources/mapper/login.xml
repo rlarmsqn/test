@@ -5,7 +5,7 @@
         INSERT INTO user_table (userId, userPw) VALUES (#{userId}, #{userPw})
     </insert>
 
-    <select id="userSelectList" resultType="List">
+    <select id="userSelectList" resultType="com.example.lucy.login.LoginDTO">
         SELECT * FROM user_table
     </select>
 </mapper>
