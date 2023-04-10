@@ -29,12 +29,14 @@ public class SecurityConfig{
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests()
-                .requestMatchers("/","/hijson","/hitext","/csrf").permitAll()
+                .requestMatchers("/","/hijson","/hitext","/csrf","/user").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .sessionManagement()
-                .sessionFixation().changeSessionId();
-        return http.build();
+                .sessionFixation().changeSessionId()
+                .and()
+                .csrf().disable();
+        return http.getOrBuild();
     }
 
 }
