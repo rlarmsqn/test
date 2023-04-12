@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.lucy.login.LoginMapper">
-    <insert id="userInsert" parameterType="com.example.lucy.login.LoginDTO">
-        INSERT INTO user_table (userId, userPw) VALUES (#{userId}, #{userPw})
+    <insert id="userInsert" parameterType="com.example.lucy.login.dto.LoginDTO">
+        INSERT INTO user_table (userId, userPw, userRole) VALUES (#{userId}, #{userPw}, #{userRole})
     </insert>
 
-    <select id="userSelectList" resultType="com.example.lucy.login.LoginDTO">
+    <select id="userSelectList" resultType="com.example.lucy.login.dto.LoginDTO">
         SELECT * FROM user_table
+    </select>
+
+    <select id="userSelect" parameterType="java.lang.String" resultType="com.example.lucy.login.dto.UserDetailsDTO">
+        SELECT * FROM user_table WHERE userId = #{value}
     </select>
 </mapper>

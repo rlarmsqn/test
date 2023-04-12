@@ -33,17 +33,17 @@ public class WebMvcConfig implements WebMvcConfigurer {
         converters.add(htmlEscapingConverter());
     }
 
-    // @EnableWebMvc 를 사용해서? yml에 설정한게 안먹어지는듯..? 그래서 따로 설정해줌
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("resource/**")
-                .addResourceLocations("classpath:/static/");
-    }
-
     private HttpMessageConverter<?> htmlEscapingConverter() {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.getFactory().setCharacterEscapes(new Escapes());
 
         return new MappingJackson2HttpMessageConverter(objectMapper);
+    }
+
+    // @EnableWebMvc 를 사용해서? yml에 설정한게 안먹어지는듯..? 그래서 따로 설정해줌
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("resource/**")
+                .addResourceLocations("classpath:/static/");
     }
 }
