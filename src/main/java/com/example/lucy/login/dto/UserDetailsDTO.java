@@ -1,5 +1,7 @@
 package com.example.lucy.login.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 import lombok.experimental.Delegate;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Getter @Setter
 public class UserDetailsDTO implements UserDetails {
 
     private String userId;
@@ -17,7 +20,7 @@ public class UserDetailsDTO implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collection = new ArrayList<>();
-        collection.add(new SimpleGrantedAuthority(userRole));
+        collection.add(new SimpleGrantedAuthority(getUserRole()));
         return collection;
     }
 
