@@ -2,17 +2,12 @@ package com.example.lucy.login.service;
 
 import com.example.lucy.login.LoginMapper;
 import com.example.lucy.login.dto.LoginDTO;
-import com.example.lucy.login.dto.UserDetailsDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 @Service
 @Slf4j

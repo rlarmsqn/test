@@ -18,9 +18,9 @@ public class CustomDetailsService implements UserDetailsService {
     private final LoginMapper loginMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        log.info("username : {}", username);
-        Optional<UserDetails> user = loginMapper.userSelect(username);
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+        log.info("userId : {}", userId);
+        Optional<UserDetails> user = loginMapper.userSelect(userId);
         log.info("user : {}", user);
 
         if(user.isEmpty()) {

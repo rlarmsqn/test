@@ -18,7 +18,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class LoginController {
+public class UserController {
     private final LoginService loginService;
 
     @PostMapping("/user")
@@ -29,10 +29,10 @@ public class LoginController {
             return new ResponseEntity(list.get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST);
         }
 
-         HttpHeaders header = new HttpHeaders();
-         header.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
+        HttpHeaders header = new HttpHeaders();
+        header.setContentType(new MediaType("application", "json", StandardCharsets.UTF_8));
 
-         return new ResponseEntity(loginService.userInsert(loginDto), header, HttpStatus.OK);
+        return new ResponseEntity(loginService.userInsert(loginDto), header, HttpStatus.OK);
     }
 
 }
